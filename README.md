@@ -6,8 +6,8 @@ A small storefront for a fictional house of watches and fragrance. The front pag
 
 ```
 maison-aurelle/
-├─ package.json          scripts and dev dependencies
-├─ tsconfig.json         strict type checking for the server
+├─ package.json       scripts and dev dependencies
+├─ tsconfig.json      strict type checking for the server
 ├─ index.html         HTML, CSS and JavaScript in one file
 ├─ server.ts          TypeScript HTTP server and JSON API
 ├─ products.json      catalogue, shared by the server and the report
