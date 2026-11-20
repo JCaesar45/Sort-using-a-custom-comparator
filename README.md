@@ -8,17 +8,12 @@ A small storefront for a fictional house of watches and fragrance. The front pag
 maison-aurelle/
 ├─ package.json          scripts and dev dependencies
 ├─ tsconfig.json         strict type checking for the server
-├─ public/
-│  └─ index.html         HTML, CSS and JavaScript in one file
-├─ server/
-│  └─ server.ts          TypeScript HTTP server and JSON API
-├─ data/
-│  ├─ products.json      catalogue, shared by the server and the report
-│  └─ waitlist.csv       created on the first signup
-├─ analytics/
-│  └─ report.py          Python pricing report
-└─ java/
-   └─ WaitlistStats.java signup counts by email domain
+├─ index.html         HTML, CSS and JavaScript in one file
+├─ server.ts          TypeScript HTTP server and JSON API
+├─ products.json      catalogue, shared by the server and the report
+├─ waitlist.csv       created on the first signup
+├─ report.py          Python pricing report
+├─ WaitlistStats.java signup counts by email domain
 ```
 
 ## Run it
