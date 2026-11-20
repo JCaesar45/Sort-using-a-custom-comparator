@@ -1,0 +1,8 @@
+[
+  {"id":"chronos-nocturne","name":"Chronos Nocturne","category":"Watch","price":4800},
+  {"id":"meridian-gold","name":"Meridian Gold","category":"Watch","price":6900},
+  {"id":"solstice-skeleton","name":"Solstice Skeleton","category":"Watch","price":12400},
+  {"id":"oud-aurelle","name":"Oud Aurelle","category":"Fragrance","price":340},
+  {"id":"ambre-souverain","name":"Ambre Souverain","category":"Fragrance","price":290},
+  {"id":"iris-noir","name":"Iris Noir","category":"Fragrance","price":310}
+]

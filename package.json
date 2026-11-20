@@ -1,0 +1,17 @@
+{
+  "name": "maison-aurelle",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "tsx server/server.ts",
+    "typecheck": "tsc --noEmit",
+    "report": "python3 analytics/report.py",
+    "stats": "java java/WaitlistStats.java"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}

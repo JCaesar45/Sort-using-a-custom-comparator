@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Maison Aurelle: watches and fragrance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,700&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f1ede2;--ink:#12302a;--mute:#4f655e;--brass:#8a6420;--panel:#e6e0d0;--line:#c9c1a9;--on-brass:#fff;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#0c211c;--ink:#ece3cb;--mute:#a7b5ac;--brass:#d2a24c;--panel:#12302a;--line:#264740;--on-brass:#0c211c}
+}
+:root[data-theme="dark"]{--bg:#0c211c;--ink:#ece3cb;--mute:#a7b5ac;--brass:#d2a24c;--panel:#12302a;--line:#264740;--on-brass:#0c211c}
+:root[data-theme="light"]{--bg:#f1ede2;--ink:#12302a;--mute:#4f655e;--brass:#8a6420;--panel:#e6e0d0;--line:#c9c1a9;--on-brass:#fff}
+html{height:100%;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 Jost,system-ui,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+h1,h2,h3{font-family:"Bodoni Moda",Georgia,serif;font-weight:500;line-height:1.08;margin:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;display:flex;align-items:center;gap:1.5rem;padding:.9rem clamp(1rem,4vw,3rem);background:var(--bg);border-bottom:1px solid var(--line)}
+.brand{font-family:"Bodoni Moda",Georgia,serif;font-size:1.35rem;text-decoration:none;margin-right:auto}
+nav{display:flex;gap:1.4rem}
+nav a{text-decoration:none;color:var(--mute)}
+nav a:hover{color:var(--ink)}
+button{font:inherit;color:inherit;cursor:pointer}
+.ghost{background:none;border:1px solid var(--line);border-radius:999px;padding:.4rem .95rem}
+.ghost:hover{border-color:var(--brass)}
+.solid{background:var(--brass);color:var(--on-brass);border:0;border-radius:999px;padding:.75rem 1.6rem;font-weight:500}
+.solid:hover{filter:brightness(1.08)}
+section{padding:clamp(3rem,8vw,6.5rem) clamp(1rem,4vw,3rem);max-width:1240px;margin:0 auto}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(1.5rem,5vw,4rem);align-items:center;min-height:calc(100vh - 80px)}
+.hero h1{font-size:clamp(2.6rem,6.4vw,5.2rem);letter-spacing:-.01em}
+.hero p{max-width:44ch;color:var(--mute);margin:1.4rem 0 2rem}
+.dial{width:100%;max-width:460px;justify-self:center;color:var(--ink)}
+.dial .ring{fill:var(--panel);stroke:var(--brass);stroke-width:5}
+.dial .tick{stroke:var(--mute);stroke-width:2}
+.dial .tick.hr{stroke:var(--ink);stroke-width:4}
+.dial .hand{stroke:var(--ink);stroke-linecap:round}
+.dial .sec{stroke:var(--brass);stroke-width:2}
+.dial text{fill:var(--mute);font:500 13px Jost,sans-serif;text-anchor:middle}
+.hero .intro{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.bar{display:flex;flex-wrap:wrap;gap:1rem;align-items:end;justify-content:space-between;margin-bottom:2rem}
+.bar h2{font-size:clamp(1.9rem,4vw,3rem)}
+.filters{display:flex;gap:.5rem}
+.filters button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.4rem}
+.card{background:var(--panel);border:1px solid var(--line);padding:1.4rem;display:flex;flex-direction:column;gap:.7rem;min-height:290px}
+.card svg{width:100%;height:120px;color:var(--brass)}
+.card h3{font-size:1.45rem}
+.card p{margin:0;color:var(--mute);flex:1}
+.card .row{display:flex;justify-content:space-between;align-items:center}
+.price{font-weight:500}
+.craft{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;border-top:1px solid var(--line)}
+.craft h2{grid-column:1/-1;font-size:clamp(1.9rem,4vw,3rem)}
+.craft strong{display:block;font:500 2.6rem "Bodoni Moda",Georgia,serif;color:var(--brass)}
+.craft span{color:var(--mute)}
+.list{max-width:640px}
+.list p{color:var(--mute)}
+form{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.4rem}
+input{flex:1 1 240px;font:inherit;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:.75rem 1.2rem}
+#note{min-height:1.6rem;margin-top:.8rem;color:var(--mute)}
+footer{border-top:1px solid var(--line);padding:2rem clamp(1rem,4vw,3rem);color:var(--mute);text-align:center}
+#drawer{position:fixed;top:0;right:0;bottom:0;width:min(420px,100%);background:var(--bg);border-left:1px solid var(--line);z-index:40;display:flex;flex-direction:column;padding:calc(env(safe-area-inset-top,0px) + 1.2rem) 1.4rem calc(env(safe-area-inset-bottom,0px) + 1.2rem);transform:translateX(100%);transition:transform .35s cubic-bezier(.2,.7,.2,1);visibility:hidden}
+#drawer.open{transform:none;visibility:visible}
+#drawer header{position:static;padding:0 0 1rem;border:0}
+#lines{flex:1;overflow:auto;margin:0;padding:0;list-style:none}
+#lines li{display:flex;gap:.8rem;align-items:center;padding:.8rem 0;border-bottom:1px solid var(--line)}
+#lines .nm{flex:1}
+.qty{display:flex;align-items:center;gap:.4rem}
+.qty button{width:1.9rem;height:1.9rem;border-radius:50%;border:1px solid var(--line);background:none;line-height:1}
+.total{display:flex;justify-content:space-between;font-weight:500;padding:1rem 0}
+#toast{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 1.2rem);transform:translate(-50%,200%);background:var(--ink);color:var(--bg);padding:.7rem 1.3rem;border-radius:999px;transition:transform .3s;z-index:50}
+#toast.show{transform:translate(-50%,0)}
+@media (max-width:820px){.hero{grid-template-columns:1fr;min-height:0}.craft{grid-template-columns:1fr}nav{display:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header>
+  <a class="brand" href="#top">Maison Aurelle</a>
+  <nav aria-label="Primary"><a href="#collection">Collection</a><a href="#atelier">Atelier</a><a href="#list">Private list</a></nav>
+  <button class="ghost" id="theme" type="button" aria-label="Switch colour theme">Theme</button>
+  <button class="ghost" id="cartBtn" type="button" aria-controls="drawer" aria-expanded="false">Bag (<span id="count">0</span>)</button>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="intro">
+      <h1>Hand-finished watches, and scents that keep time with them.</h1>
+      <p>Three calibres and three fragrances, each made in runs of two hundred. The dial beside this text is running on your clock.</p>
+      <button class="solid" type="button" onclick="document.getElementById('collection').scrollIntoView()">Browse the collection</button>
+    </div>
+    <svg class="dial" id="dial" viewBox="0 0 400 400" role="img" aria-label="Live analogue clock showing your local time">
+      <circle class="ring" cx="200" cy="200" r="190"/>
+      <g id="ticks"></g>
+      <text x="200" y="130">AURELLE</text>
+      <text x="200" y="290" id="dateText"></text>
+      <line class="hand" id="hH" x1="200" y1="200" x2="200" y2="120" stroke-width="8"/>
+      <line class="hand" id="hM" x1="200" y1="200" x2="200" y2="70" stroke-width="5"/>
+      <line class="hand sec" id="hS" x1="200" y1="225" x2="200" y2="50"/>
+      <circle cx="200" cy="200" r="9" fill="var(--brass)"/>
+    </svg>
+  </section>
+
+  <section id="collection">
+    <div class="bar">
+      <h2>The collection</h2>
+      <div class="filters" role="group" aria-label="Filter products">
+        <button class="ghost" type="button" data-f="All" aria-pressed="true">All</button>
+        <button class="ghost" type="button" data-f="Watch" aria-pressed="false">Watches</button>
+        <button class="ghost" type="button" data-f="Fragrance" aria-pressed="false">Fragrances</button>
+      </div>
+    </div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section class="craft" id="atelier">
+    <h2>Made slowly, on purpose</h2>
+    <div><strong>312</strong><span>hours of hand finishing in every movement</span></div>
+    <div><strong>200</strong><span>pieces per reference, never reissued</span></div>
+    <div><strong>5</strong><span>year service included with every watch</span></div>
+  </section>
+
+  <section class="list" id="list">
+    <h2>Join the private list</h2>
+    <p>Hear about each new run a week before it is public. One email per release, nothing else.</p>
+    <form id="join" novalidate>
+      <input id="email" type="email" autocomplete="email" placeholder="you@example.com" aria-label="Email address" required>
+      <button class="solid" type="submit">Join the list</button>
+    </form>
+    <div id="note" role="status" aria-live="polite"></div>
+  </section>
+</main>
+<footer>Maison Aurelle is a fictional house made for this demo. Prices are in US dollars.</footer>
+
+<aside id="drawer" aria-label="Shopping bag" aria-hidden="true">
+  <header><h3 style="margin-right:auto">Your bag</h3><button class="ghost" id="closeBtn" type="button">Close</button></header>
+  <ul id="lines"></ul>
+  <div class="total"><span>Total</span><span id="total">$0</span></div>
+  <button class="solid" id="checkout" type="button">Check out</button>
+</aside>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+  "use strict";
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var money = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
+  var PRODUCTS = [
+    { id: "chronos-nocturne", name: "Chronos Nocturne", category: "Watch", price: 4800, note: "Automatic, 39 mm steel case, midnight green dial." },
+    { id: "meridian-gold", name: "Meridian Gold", category: "Watch", price: 6900, note: "Eighteen carat case with a sector dial and sapphire back." },
+    { id: "solstice-skeleton", name: "Solstice Skeleton", category: "Watch", price: 12400, note: "Open-worked movement, bridges engraved by hand." },
+    { id: "oud-aurelle", name: "Oud Aurelle", category: "Fragrance", price: 340, note: "Smoked oud, cardamom and aged leather. 100 ml." },
+    { id: "ambre-souverain", name: "Ambre Souverain", category: "Fragrance", price: 290, note: "Amber resin, vanilla pod and dry cedar. 100 ml." },
+    { id: "iris-noir", name: "Iris Noir", category: "Fragrance", price: 310, note: "Orris butter, black tea and white musk. 100 ml." }
+  ];
+  var byId = {};
+  PRODUCTS.forEach(function (p) { byId[p.id] = p; });
+
+  function store(key, val) {
+    try { if (val === undefined) { return JSON.parse(localStorage.getItem(key)); } localStorage.setItem(key, JSON.stringify(val)); } catch (e) { return null; }
+    return null;
+  }
+  var toastTimer;
+  function toast(msg) {
+    var t = $("#toast"); t.textContent = msg; t.classList.add("show");
+    clearTimeout(toastTimer); toastTimer = setTimeout(function () { t.classList.remove("show"); }, 2600);
+  }
+
+  /* Theme */
+  var root = document.documentElement;
+  var savedTheme = store("aurelle:theme");
+  if (savedTheme === "light" || savedTheme === "dark") root.setAttribute("data-theme", savedTheme);
+  $("#theme").addEventListener("click", function () {
+    var current = root.getAttribute("data-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    var next = current === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next); store("aurelle:theme", next);
+  });
+
+  /* Live dial */
+  var NS = "http://www.w3.org/2000/svg", ticks = $("#ticks");
+  for (var i = 0; i < 60; i++) {
+    var hr = i % 5 === 0, a = i * 6 * Math.PI / 180, r1 = hr ? 158 : 170, r2 = 180;
+    var ln = document.createElementNS(NS, "line");
+    ln.setAttribute("class", "tick" + (hr ? " hr" : ""));
+    ln.setAttribute("x1", (200 + Math.sin(a) * r1).toFixed(2)); ln.setAttribute("y1", (200 - Math.cos(a) * r1).toFixed(2));
+    ln.setAttribute("x2", (200 + Math.sin(a) * r2).toFixed(2)); ln.setAttribute("y2", (200 - Math.cos(a) * r2).toFixed(2));
+    ticks.appendChild(ln);
+  }
+  var hH = $("#hH"), hM = $("#hM"), hS = $("#hS"), dateText = $("#dateText");
+  var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function setRot(el, deg) { el.setAttribute("transform", "rotate(" + deg.toFixed(2) + " 200 200)"); }
+  function tick() {
+    var d = new Date(), ms = d.getMilliseconds(), s = d.getSeconds() + (reduce ? 0 : ms / 1000);
+    var m = d.getMinutes() + s / 60, h = (d.getHours() % 12) + m / 60;
+    setRot(hS, s * 6); setRot(hM, m * 6); setRot(hH, h * 30);
+    dateText.textContent = d.toLocaleDateString("en-US", { weekday: "short", day: "numeric", month: "short" });
+    if (reduce) { setTimeout(tick, 1000); } else { requestAnimationFrame(tick); }
+  }
+  tick();
+
+  /* Products */
+  var filter = "All", cart = store("aurelle:cart") || {};
+  Object.keys(cart).forEach(function (k) { if (!byId[k] || !(cart[k] > 0)) delete cart[k]; });
+
+  function art(cat) {
+    var svg = document.createElementNS(NS, "svg");
+    svg.setAttribute("viewBox", "0 0 120 120"); svg.setAttribute("aria-hidden", "true");
+    var g = function (tag, attrs) {
+      var el = document.createElementNS(NS, tag);
+      for (var k in attrs) el.setAttribute(k, attrs[k]);
+      svg.appendChild(el); return el;
+    };
+    if (cat === "Watch") {
+      g("rect", { x: 48, y: 4, width: 24, height: 26, fill: "currentColor", opacity: ".35" });
+      g("rect", { x: 48, y: 90, width: 24, height: 26, fill: "currentColor", opacity: ".35" });
+      g("circle", { cx: 60, cy: 60, r: 32, fill: "none", stroke: "currentColor", "stroke-width": 4 });
+      g("line", { x1: 60, y1: 60, x2: 60, y2: 40, stroke: "currentColor", "stroke-width": 3, "stroke-linecap": "round" });
+      g("line", { x1: 60, y1: 60, x2: 74, y2: 66, stroke: "currentColor", "stroke-width": 3, "stroke-linecap": "round" });
+    } else {
+      g("rect", { x: 38, y: 40, width: 44, height: 70, rx: 6, fill: "none", stroke: "currentColor", "stroke-width": 4 });
+      g("rect", { x: 50, y: 22, width: 20, height: 18, fill: "currentColor", opacity: ".5" });
+      g("rect", { x: 54, y: 8, width: 12, height: 14, fill: "currentColor" });
+    }
+    return svg;
+  }
+
+  function renderGrid() {
+    var grid = $("#grid"); grid.textContent = "";
+    PRODUCTS.filter(function (p) { return filter === "All" || p.category === filter; }).forEach(function (p) {
+      var card = document.createElement("article"); card.className = "card";
+      card.appendChild(art(p.category));
+      var h = document.createElement("h3"); h.textContent = p.name; card.appendChild(h);
+      var d = document.createElement("p"); d.textContent = p.note; card.appendChild(d);
+      var row = document.createElement("div"); row.className = "row";
+      var pr = document.createElement("span"); pr.className = "price"; pr.textContent = money.format(p.price);
+      var b = document.createElement("button"); b.type = "button"; b.className = "ghost"; b.textContent = "Add to bag";
+      b.addEventListener("click", function () { cart[p.id] = (cart[p.id] || 0) + 1; saveCart(); toast(p.name + " added to your bag."); });
+      row.appendChild(pr); row.appendChild(b); card.appendChild(row); grid.appendChild(card);
+    });
+  }
+  document.querySelectorAll(".filters button").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      filter = btn.dataset.f;
+      document.querySelectorAll(".filters button").forEach(function (o) { o.setAttribute("aria-pressed", String(o === btn)); });
+      renderGrid();
+    });
+  });
+
+  /* Bag */
+  function saveCart() { store("aurelle:cart", cart); renderCart(); }
+  function renderCart() {
+    var ul = $("#lines"); ul.textContent = ""; var total = 0, n = 0;
+    var ids = Object.keys(cart);
+    ids.forEach(function (id) {
+      var p = byId[id], q = cart[id]; total += p.price * q; n += q;
+      var li = document.createElement("li");
+      var nm = document.createElement("span"); nm.className = "nm"; nm.textContent = p.name + " (" + money.format(p.price) + ")";
+      var qty = document.createElement("span"); qty.className = "qty";
+      var minus = document.createElement("button"); minus.type = "button"; minus.textContent = "−"; minus.setAttribute("aria-label", "Remove one " + p.name);
+      var num = document.createElement("span"); num.textContent = q;
+      var plus = document.createElement("button"); plus.type = "button"; plus.textContent = "+"; plus.setAttribute("aria-label", "Add one " + p.name);
+      minus.addEventListener("click", function () { cart[id] -= 1; if (cart[id] <= 0) delete cart[id]; saveCart(); });
+      plus.addEventListener("click", function () { cart[id] += 1; saveCart(); });
+      qty.appendChild(minus); qty.appendChild(num); qty.appendChild(plus);
+      li.appendChild(nm); li.appendChild(qty); ul.appendChild(li);
+    });
+    if (!ids.length) { var e = document.createElement("li"); e.textContent = "Your bag is empty. Add a piece from the collection."; ul.appendChild(e); }
+    $("#count").textContent = n; $("#total").textContent = money.format(total);
+  }
+  var drawer = $("#drawer"), cartBtn = $("#cartBtn");
+  function openDrawer(open) {
+    drawer.classList.toggle("open", open); drawer.setAttribute("aria-hidden", String(!open));
+    cartBtn.setAttribute("aria-expanded", String(open));
+    if (open) { $("#closeBtn").focus(); } else { cartBtn.focus(); }
+  }
+  cartBtn.addEventListener("click", function () { openDrawer(!drawer.classList.contains("open")); });
+  $("#closeBtn").addEventListener("click", function () { openDrawer(false); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && drawer.classList.contains("open")) openDrawer(false); });
+  $("#checkout").addEventListener("click", function () {
+    if (!Object.keys(cart).length) { toast("Add something to your bag first."); return; }
+    cart = {}; saveCart(); openDrawer(false); toast("Order placed. This is a demo, so nothing was charged.");
+  });
+
+  /* Private list */
+  var EMAIL = /^[^\s@,;"]+@[^\s@,;"]+\.[^\s@,;"]{2,}$/;
+  function post(email) {
+    var ctl = new AbortController(), t = setTimeout(function () { ctl.abort(); }, 4000);
+    return fetch("/api/waitlist", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ email: email }), signal: ctl.signal })
+      .then(function (r) { clearTimeout(t); return r.ok; })
+      .catch(function () { clearTimeout(t); return false; });
+  }
+  $("#join").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var email = $("#email").value.trim().toLowerCase(), note = $("#note");
+    if (!EMAIL.test(email) || email.length > 120) { note.textContent = "Enter a full address, such as name@example.com."; $("#email").focus(); return; }
+    note.textContent = "Adding you…";
+    post(email).then(function (ok) {
+      if (ok) { note.textContent = "You’re on the list. Watch for the next release."; }
+      else {
+        var local = store("aurelle:list") || [];
+        if (local.indexOf(email) < 0) local.push(email);
+        store("aurelle:list", local);
+        note.textContent = "The server is offline, so your address is saved on this device only.";
+      }
+      $("#email").value = "";
+    });
+  });
+
+  renderGrid(); renderCart();
+})();
+</script>
+</body>
+</html>
